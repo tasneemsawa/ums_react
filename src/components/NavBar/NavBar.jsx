@@ -15,7 +15,13 @@ export default function NavBar() {
         <li className="nav-item">
           <Link className="nav-link" to={"/users"}>users</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to={"/addUser"}>add User</Link>
+        </li>
 
+
+
+        
       </ul>
     </div>
   </div>

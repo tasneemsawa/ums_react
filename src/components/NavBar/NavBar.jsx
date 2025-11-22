@@ -13,7 +13,7 @@ export default function NavBar() {
           <Link className="nav-link active" aria-current="page" to={"/home"}>Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={"/user"}>Link</Link>
+          <Link className="nav-link" to={"/users"}>users</Link>
         </li>
 
       </ul>

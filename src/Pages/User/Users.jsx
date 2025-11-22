@@ -1,31 +1,11 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import useFetch from '../../Hooks/useFetch';
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState('');
 
-
-const getUsers=async()=>{
-
-  try {
-    const response = await axios.get(`${import.meta.env.VITE_BURL}/users`);
-    setUsers(response.data.users);
-  } catch (err) {
-    setIsError(err.message);
-  } finally {
-    setIsLoading(false);
-  }
-
-}
-
-  useEffect(()=>{
-
-    getUsers();
-
-  },[])
+ let {data,isLoading,isError} =useFetch("users") 
 
   if (isError) {
     return <div className='text-danger'>{isError}</div>
@@ -47,7 +27,7 @@ const getUsers=async()=>{
         </tr>
       </thead>
       <tbody>
-        {users.map(user =>
+        {data.users.map(user =>
           <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.email}</td>
